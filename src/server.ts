@@ -22,13 +22,13 @@ class Server {
   }
   
   async dbConnection() {
-    // try {
-    //   // Sincronizar la base de datos
-    //   await db.sync({ force: true }); // Cambiar a { alter: true } en producción
-    //   console.log("Tablas sincronizadas correctamente.");
-    // } catch (error) {
-    //   console.error("Error al sincronizar las tablas:", error);
-    // }
+    try {
+      // Sincronizar la base de datos
+      await db.sync({force: false, alter:false }); // Cambiar a { alter: true } en producción
+      console.log("Tablas sincronizadas correctamente.");
+    } catch (error) {
+      console.error("Error al sincronizar las tablas:", error);
+    }
     try {
       await db.authenticate();
       console.log("Database online");
